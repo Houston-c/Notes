@@ -2,7 +2,7 @@
 
 ### Viewer : 创建Cesium的实例
 
-![image-20191205095057155](./image/image-20191205095057155.png)
+![image-20191205095057155](../image/image-20191205095057155.png)
     	路由访问该组件或者引该组件作为别的组件的子组件，加载并设置Cesium容器的宽度和高度，通过上面的基本配置就可以显示基本的Cesium
 
 #### screenSpaceEventHandler
@@ -372,7 +372,7 @@ index：添加层的索引。如果省略，该层将添加到所有现有层的
 #### addS3MTilesLayerByScp:
 
 ​		添加单个图层，我们通过viewer.scene.addS3MTilesLayerByScp方法进行添加，返回的是一个promise异步加载对象。
-![image-20191212111313228](./image/image-20191212111313228.png)
+![image-20191212111313228](../image/image-20191212111313228.png)
 
 要设置S3MTilesLayer的参数，首先我们需要获取到S3MTilesLayer图层，
  **Cesium.when回调获取该图层**

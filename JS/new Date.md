@@ -4,4 +4,4 @@
 
 ![img](https://img-blog.csdnimg.cn/20181102181921502.png)
 
-![image-20200115092724490](./image/image-20200115092724490.png)
+![image-20200115092724490](../image/image-20200115092724490.png)
