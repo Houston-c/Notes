@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .gl {
+            width: 8px;
+            height: 8px;
+            margin-top: 10px;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            -webkit-transform: translate(0, -50%) rotate(-135deg);
+            transform: translate(0, -50%) rotate(-135deg);
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .wrapper {
+            height: 270px;
+            width: 230px;
+            background-color: gray;
+        }
+
+        .qrcodeWrap {
+            width: 370px;
+            height: 470px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .qrcodeWrap img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .qrcodeWrap button {
+            margin-top: 40px;
+            width: 250px;
+            color: #1E90FF;
+            border: 1px solid #1E90FF;
+            padding: 5px 0;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="item">
+            <div>名称</div>
+            <div id="label"></div>
+        </div>
+        <div class="item">
+            <div>类型</div>
+            <div id="type">fgx</div>
+        </div>
+        <div class="item">
+            <div>绑定标段</div>
+            <div id="bdname">A4</div>
+        </div>
+        <div class="item">
+            <div>ID</div>
+            <div id="uniqId">A4-142329</div>
+        </div>
+
+        <div class="item">
+            <div>二维码</div>
+            <div>
+                <div class="gl"></div>
+            </div>
+        </div>
+    </div>
+    <div class="qrcodeWrap">
+        <img id="qrcode" alt="" />
+
+        <button id="downloadBtn" type="button">下载</button>
+    </div>
+    <script>
+        setTimeout(() => {
+            $("#label").text("1#墩11号块")
+        }, 1000);
+        let src =
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQAAAACoxAthAAAByklEQVR42u3bQXaEIAyA4bjyGB4Vj+oxXEkVCMSO1c6S+LvwjcLXFS8kkUr8+hIIBAKBQCAQCKRHskm5xv1hGffHaR3ifLwJi44FiFeSn4/ZYdndXOaURzMF4pEsaXHosEynP7OvJMgLiA6XVTNA3kT2iZMmBWWzgPgnLTRM67FP7DeZ8rvH/QXSOdFEccsrxN6ecktI58ReZYvIFcLwr7oS0jUpCyYvjqM+jPEoEo9wMadyMb+DuCRpJG0Rp8zQRortI1xAnJAtv9QGUYkZc3XhKlxAnJDaGMhRobYIVnXxIlxAnJC2YFqkGE7l4hghfknrB+rEWjponyBAfJI0sX4GMC2CLf/SrjHELSklQVxEbyVvjOUXxC+pFcLvItH0CCEeyWZDg0ka2vX3/gLpn4R6GsB8E6oDcplbQtyQnBtogiAmW7zeLCCeSKoK6xmA0hkcbdc4QHySU5dIxvar9g4gfsnpo7ApEle52SwgbogeCIm1SBSbN07XzWGIE7K0LqAOp6aRtgcj5A0kJ4rSqoZ8JEDuzo5CvJD2LwAmUYz34QLSOTkf9xfbLZT7/QXSPfk8CNq+FMhjbgnpmXxzQSAQCAQCgUAgfZEfo+6Pk1YegboAAAAASUVORK5CYII="
+        $("#qrcode").attr('src', src)
+        // let src = $("#qrcode")[0].src; 
+        // console.log(src)
+
+        $("#downloadBtn").click(
+            function () {
+                console.log("111")
+                var img = document.getElementById('qrcode'); // 获取要下载的图片
+                var url = img.src; // 获取图片地址
+                var a = document.createElement('a'); // 创建一个a节点插入的document
+                var event = new MouseEvent('click') // 模拟鼠标click点击事件
+                a.download = '123' // 设置a节点的download属性值
+                a.href = url; // 将图片的src赋值给a节点的href
+                a.dispatchEvent(event) // 触发鼠标点击事件
+            }
+        )
+
+        function downloadImg() {
+            console.log("111")
+            var img = document.getElementById('qrcode'); // 获取要下载的图片
+            var url = img.src; // 获取图片地址
+            var a = document.createElement('a'); // 创建一个a节点插入的document
+            var event = new MouseEvent('click') // 模拟鼠标click点击事件
+            a.download = 'beautifulGirl' // 设置a节点的download属性值
+            a.href = url; // 将图片的src赋值给a节点的href
+            a.dispatchEvent(event) // 触发鼠标点击事件
+        }
+    </script>
+</body>
+
+</html>

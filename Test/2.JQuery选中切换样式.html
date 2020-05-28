@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .wrapper {
+            height: 280px;
+            width: 200px;
+            /* background-color: #3f4854; */
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px 7px 10px;
+            cursor: pointer;
+        }
+
+        .itemActive {
+            background-color: #E1FFFF;
+            color: #00BFFF;
+        }
+
+        .upArrow {
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0px 5px 5px 5px;
+            /*border-top-width设置为0,为了让透明的顶部的三角形不占据空间*/
+            border-color: transparent transparent #6A757E transparent;
+        }
+
+        .gl {
+            width: 8px;
+            height: 8px;
+            margin-top: 10px;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            -webkit-transform: translate(0, -50%) rotate(-135deg);
+            transform: translate(0, -50%) rotate(-135deg);
+        }
+    </style>
+    <div class="gl"> </div><br><br>
+    <div class="wrapper">
+        <div class="item" id="jbxx">
+            <div>基本信息</div>
+            <div class="gl"></div>
+        </div>
+        <div class="item" id="fxqd">
+            <div>风险清单</div>
+            <div class="gl"></div>
+        </div>
+        <div class="item" id="zrqd">
+            <div>责任清单</div>
+            <div class="gl"></div>
+        </div>
+        <div class="item" id="zxfa">
+            <div>专项方案</div>
+            <div class="gl"></div>
+        </div>
+        <div class="item" id="fxdt">
+            <div>风险动态</div>
+            <div class="gl"></div>
+        </div>
+        <div class="item" id="yhqd">
+            <div>隐患清单</div>
+            <div class="gl"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // $('body').on('click', '#fxqd', function () {
+    //     console.log("hahah");
+    //     //something
+    // })
+    $(".wrapper div").click(function () {
+        console.log(this)
+        $(this).addClass('itemActive').siblings().removeClass('itemActive').children().removeClass(
+            'itemActive');
+        let name = $(this).children()[0].textContent;
+        let url;
+        switch ($(this).attr("id")) {
+            case 'jbxx':
+                url = ""
+                break;
+            case 'fxqd':
+                url =
+                    "http://bim.checc.com.cn/yhgl/?m=login&user=admin&token=ptStsH0VpNzi6T9NlD+0ZA==&homeurl=ZmxvdyxwYWdlLGZ4c2IsYXR5cGU9YWxsLHBudW09YWxs&homename=6aOO6Zmp5riF5Y2V&menuid=Mzc2&zb_id=" +
+                    id;
+                break;
+            case 'zrqd':
+                url = ""
+                break;
+            case 'zxfa':
+                url = ""
+                break;
+            case 'fxdt':
+                url = ""
+                break;
+            case 'yhqd':
+                url = ""
+                break;
+
+            default:
+                break;
+        }
+        console.log(name)
+    });
+</script>
+
+</html>
